@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>使用记录</title>
+    </head>
+
+    <body>
+        <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">慧眼计数</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="dropdown-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="https://v3.bootcss.com/examples/navbar/">Default <span class="sr-only">(current)</span></a></li>
+              <li><a href="https://v3.bootcss.com/examples/navbar-static-top/">Static top</a></li>
+              <li><a href="https://v3.bootcss.com/examples/navbar-fixed-top/">Fixed top</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+        <h2 align="center">历史记录</h2>
+        <style>
+            .div2{
+                width: 1200px;
+                height: 300px;
+            }
+            .div1{
+                float: left;
+                width: 400px;
+                height: 300px;
+            }
+            img{
+                width: 400px;
+                height: 300px;
+            }
+        </style>
+
+        {% for i in range(len) %}
+            {% if i == 0 %}
+                <div class="div2" align="center">
+            {% endif %}
+                <div class="div1"><img src="../static/save/{{name[i]}}" width="405" height="302"/>
+                <p class="bg-info">&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+                    葡萄总数:{{sum[i]}}&nbsp;&nbsp;&nbsp;好葡萄数:{{g_num[i]}}
+                    &nbsp;&nbsp;&nbsp;坏葡萄数:{{b_num[i]}}</p></div>
+            {% if i%3 == 2 %}
+                </div><br>
+            {% endif %}
+        {% endfor %}
+
+        {% if len != 0 and len % 3 != 0 %}
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        {% endif %}
+        <br>
+        <!-- <script>
+            var x = '{{name|tojson|safe}}'
+            document.write(x)
+            for(let i = 0; i < Number("{{len}}"); i++)
+            {
+                if(i%3 == 0)
+                    document.write('<div class="div2">')
+                document.write('<div class="div1"><img src="../static/save/' + x[0] + '" width="405" height="302"/>');
+                // document.write('<div class="div1"><img src="../static/save/' + '{{name['+ i.toString() +']}}' + '" width="405" height="302"/>');
+                document.write('<span>葡萄总数:' + '{{sum[0]}}' + '<span>');
+                document.write('<span>好葡萄数:' + '{{g_num[0]}}' + '<span>');
+                document.write('<span>坏葡萄数:' + '{{b_num[0]}}' + '<span></div>');
+                if(i%3 == 2)
+                    document.write('</div><br><br>')
+            }
+            if(Number("{{len}}") != 0 && Number("{{len}}") % 3 != 0)
+                document.write('<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>')
+        </script> -->
+
+        <div align="center">
+            <form method="post" action="\upload" enctype="multipart/form-data">
+            <input type="submit" value="上传照片" class="btn btn-primary" style="margin-top:15px;"/>
+            </form>
+        </div>
+        <br>
+    </body>
+</html>

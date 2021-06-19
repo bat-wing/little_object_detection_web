@@ -1,0 +1,9 @@
+qwa 52 48
+edd 50 50
+ldop 90 10
+mnist 80 20
+handhoop 100 0
+hkang 43 57
+gkol 76 24
+Bornwithpower 23 76
+qwe 3 97
